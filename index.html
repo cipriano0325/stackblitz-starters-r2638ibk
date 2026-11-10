@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="./styles.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="Aluno.js" defer></script>
+    <script src="Turma.js" defer></script>
+    <script src="script.js" defer></script>
+    <title>Sistema Escolar</title>
+  </head>
+
+  <body>
+    <div class="tabs-container">
+      <button class="tab-button active" id="btn-turmas" onclick="mostrarAba('turmas')">Turmas</button>
+      <button class="tab-button" id="btn-cadastrar" onclick="mostrarAba('cadastrar')">Cadastrar Aluno</button>
+      <button class="tab-button" id="btn-listar" onclick="mostrarAba('listar')">Listar Alunos</button>
+    </div>
+
+    <div id="tab-turmas" class="tab-content active">
+      <label for="professor">Professor</label>
+      <input id="professor" type="text" />
+
+      <label for="curso">Nome do curso</label>
+      <input id="curso" type="text" />
+
+      <button onclick="salvarTurma()" class="btn-salvar">Salvar Turma</button>
+
+      <h3>Turmas cadastradas</h3>
+
+      <ul class="lista-alunos" id="lista-turmas">
+        <li>Nenhuma turma cadastrada ainda.</li>
+      </ul>
+    </div>
+
+    <div id="tab-cadastrar" class="tab-content">
+      <p id="aviso-sem-turma" class="aviso">
+        Cadastre uma turma antes de cadastrar alunos.
+      </p>
+
+      <label for="turma">Turma</label>
+      <select id="turma"></select>
+
+      <label for="nome">Nome</label>
+      <input id="nome" type="text" />
+
+      <label for="n1">Nota 1</label>
+      <input id="n1" type="text" inputmode="decimal" />
+
+      <label for="n2">Nota 2</label>
+      <input id="n2" type="text" inputmode="decimal" />
+
+      <label for="n3">Nota 3</label>
+      <input id="n3" type="text" inputmode="decimal" />
+
+      <button onclick="salvarAluno()" class="btn-salvar" id="btn-salvar-aluno">Salvar Aluno</button>
+    </div>
+
+    <div id="tab-listar" class="tab-content">
+      <h3>Alunos Cadastrados</h3>
+
+      <div class="tabela-wrapper">
+        <table class="tabela-alunos">
+          <thead>
+            <tr>
+              <th>Nome</th>
+              <th>Turma</th>
+              <th>Nota 1</th>
+              <th>Nota 2</th>
+              <th>Nota 3</th>
+              <th>Média</th>
+              <th>Situação</th>
+              <th>Ações</th>
+            </tr>
+          </thead>
+
+          <tbody id="alunos"></tbody>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>
